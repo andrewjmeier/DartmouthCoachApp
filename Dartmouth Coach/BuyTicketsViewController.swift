@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class BuyTicketsViewController: UIViewController {
     @IBOutlet weak var hanoverOriginButton: UIButton!
     @IBOutlet weak var newLondonOriginButton: UIButton!
     @IBOutlet weak var lebanonOriginButton: UIButton!
@@ -82,6 +82,7 @@ class FirstViewController: UIViewController {
             break
         case newLondonOriginButton:
             changeNHDestButtons(state)
+            changeNYDestButtons(state)
             break
         case southStationOriginButton:
             changeMassDestButtons(state)
@@ -95,6 +96,40 @@ class FirstViewController: UIViewController {
             changeMassDestButtons(state)
             changeNYDestButtons(state)
             newLondonDestinationButton.enabled = state;
+        default:
+            break
+        }
+    }
+    
+    func changeDestButtons(sender: UIButton, state: Bool) {
+        changeNHDestButtons(state)
+        changeMassDestButtons(state)
+        changeNYDestButtons(state)
+        sender.enabled = true
+        
+        switch (sender) {
+        case hanoverDestinationButton:
+            changeNHOriginButtons(state)
+            break
+        case lebanonDestinationButton:
+            changeNHOriginButtons(state)
+            break
+        case newLondonDestinationButton:
+            changeNHOriginButtons(state)
+            changeNYOriginButtons(state)
+            break
+        case southStationDestinationButton:
+            changeMassOriginButtons(state)
+            changeNYOriginButtons(state)
+            break
+        case loganDestinationButton:
+            changeMassOriginButtons(state)
+            changeNYOriginButtons(state)
+            break
+        case newYorkDestinationButton:
+            changeMassOriginButtons(state)
+            changeNYOriginButtons(state)
+            newLondonOriginButton.enabled = state;
         default:
             break
         }
@@ -122,8 +157,11 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func destPressed(sender: UIButton) {
-        if (!hasSelectedOrigin) {
-            showAlert("Oops", message: "Please select an origin first")
+        if (hasSelectedOrigin == true) {
+            // transition to next screen?
+        } else {
+            changeDestButtons(sender, state: sender.selected)
+            sender.selected = !sender.selected
         }
     }
     

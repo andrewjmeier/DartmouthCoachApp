@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250D1C6E1D07009309ED /* AppDelegate.swift */; };
-		498425101C6E1D07009309ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250F1C6E1D07009309ED /* FirstViewController.swift */; };
+		498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */; };
 		498425121C6E1D07009309ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425111C6E1D07009309ED /* SecondViewController.swift */; };
 		498425151C6E1D07009309ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498425131C6E1D07009309ED /* Main.storyboard */; };
 		498425171C6E1D07009309ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498425161C6E1D07009309ED /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		4984250A1C6E1D07009309ED /* Dartmouth Coach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dartmouth Coach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4984250D1C6E1D07009309ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4984250F1C6E1D07009309ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsViewController.swift; sourceTree = "<group>"; };
 		498425111C6E1D07009309ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		498425141C6E1D07009309ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		498425161C6E1D07009309ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				4984250D1C6E1D07009309ED /* AppDelegate.swift */,
-				4984250F1C6E1D07009309ED /* FirstViewController.swift */,
+				4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */,
 				498425111C6E1D07009309ED /* SecondViewController.swift */,
 				498425131C6E1D07009309ED /* Main.storyboard */,
 				498425161C6E1D07009309ED /* Assets.xcassets */,
@@ -140,7 +140,7 @@
 			files = (
 				498425121C6E1D07009309ED /* SecondViewController.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
-				498425101C6E1D07009309ED /* FirstViewController.swift in Sources */,
+				498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
