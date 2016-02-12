@@ -159,6 +159,9 @@ class BuyTicketsViewController: UIViewController {
     @IBAction func destPressed(sender: UIButton) {
         if (hasSelectedOrigin == true) {
             // transition to next screen?
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("calendar")
+            navigationController?.pushViewController(vc, animated: true)
         } else {
             changeDestButtons(sender, state: sender.selected)
             sender.selected = !sender.selected
