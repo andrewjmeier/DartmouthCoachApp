@@ -69,58 +69,85 @@
                                 <rect key="frame" x="122" y="57" width="58" height="30"/>
                                 <state key="normal" title="Hanover"/>
                                 <connections>
-                                    <action selector="nhOriginPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0xp-bK-cmL"/>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="5iZ-ba-JeX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLC-wM-KMg">
                                 <rect key="frame" x="207" y="57" width="59" height="30"/>
                                 <state key="normal" title="Lebanon"/>
+                                <connections>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="yYD-rL-Dgm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHo-A1-F6b">
                                 <rect key="frame" x="295" y="57" width="86" height="30"/>
                                 <state key="normal" title="New London"/>
+                                <connections>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="tJr-tQ-et0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sW-U7-Eim">
                                 <rect key="frame" x="122" y="100" width="93" height="30"/>
                                 <state key="normal" title="South Station"/>
                                 <connections>
-                                    <action selector="bostonOriginPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sqH-t6-nCI"/>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="1lL-ok-WQa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpa-HF-Uog">
                                 <rect key="frame" x="244" y="100" width="94" height="30"/>
                                 <state key="normal" title="Logan Airport"/>
+                                <connections>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8XW-WH-TYN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfW-a4-uvd">
                                 <rect key="frame" x="122" y="141" width="97" height="30"/>
                                 <state key="normal" title="New York City"/>
                                 <connections>
-                                    <action selector="newYorkOriginPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="wHC-cr-5pL"/>
+                                    <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Gyn-A8-uV5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btA-0l-DjP">
                                 <rect key="frame" x="122" y="245" width="58" height="30"/>
                                 <state key="normal" title="Hanover"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qtI-vl-Kcg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKN-68-4qY">
                                 <rect key="frame" x="207" y="245" width="59" height="30"/>
                                 <state key="normal" title="Lebanon"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="U5b-RH-AMt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6w-gV-IU7">
                                 <rect key="frame" x="295" y="245" width="86" height="30"/>
                                 <state key="normal" title="New London"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nIH-6x-jnB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfL-vo-gRY">
                                 <rect key="frame" x="122" y="274" width="93" height="30"/>
                                 <state key="normal" title="South Station"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="HlD-Vw-1ax"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-Ra-cp4">
                                 <rect key="frame" x="244" y="278" width="94" height="30"/>
                                 <state key="normal" title="Logan Airport"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="e4I-cV-RpG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-1v-hrq">
                                 <rect key="frame" x="122" y="308" width="97" height="30"/>
                                 <state key="normal" title="New York City"/>
+                                <connections>
+                                    <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Bkh-vW-1cm"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="XcS-2P-ceg">
                                 <rect key="frame" x="13" y="379" width="161" height="29"/>

@@ -28,72 +28,85 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var numberOfTicketsStepper: UIStepper!
     
     
+    var hasSelectedOrigin: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hasSelectedOrigin = false
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func disableNHOriginButtons() {
-        hanoverOriginButton.enabled = false;
-        newLondonOriginButton.enabled = false;
-        lebanonOriginButton.enabled = false;
+    func changeNHOriginButtons(state: Bool) {
+        hanoverOriginButton.enabled = state;
+        newLondonOriginButton.enabled = state;
+        lebanonOriginButton.enabled = state;
     }
     
-    func disableMassOriginButtons() {
-        southStationOriginButton.enabled = false;
-        loganOriginButton.enabled = false;
+    func changeMassOriginButtons(state: Bool) {
+        southStationOriginButton.enabled = state;
+        loganOriginButton.enabled = state;
     }
     
-    func disableNYOriginButtons() {
-        newYorkOriginButton.enabled = false;
+    func changeNYOriginButtons(state: Bool) {
+        newYorkOriginButton.enabled = state;
     }
     
-    func disableNHDestButtons() {
-        hanoverDestinationButton.enabled = false;
-        lebanonDestinationButton.enabled = false;
-        newLondonDestinationButton.enabled = false;
+    func changeNHDestButtons(state: Bool) {
+        hanoverDestinationButton.enabled = state;
+        lebanonDestinationButton.enabled = state;
+        newLondonDestinationButton.enabled = state;
     }
     
-    func disableMassDestButtons() {
-        southStationDestinationButton.enabled = false;
-        loganDestinationButton.enabled = false;
+    func changeMassDestButtons(state: Bool) {
+        southStationDestinationButton.enabled = state;
+        loganDestinationButton.enabled = state;
     }
     
-    func disableNYDestButtons() {
-        newYorkDestinationButton.enabled = false;
+    func changeNYDestButtons(state: Bool) {
+        newYorkDestinationButton.enabled = state;
     }
     
-    func disableOriginButtons(sender: UIButton) {
-        disableNHOriginButtons()
-        disableMassOriginButtons()
-        disableNYOriginButtons()
+    func changeOriginButtons(sender: UIButton, state: Bool) {
+        changeNHOriginButtons(state)
+        changeMassOriginButtons(state)
+        changeNYOriginButtons(state)
         sender.enabled = true;
         
         switch (sender) {
         case hanoverOriginButton:
-            disableNHDestButtons()
+            changeNHDestButtons(state)
             break
         case lebanonOriginButton:
-            disableNHDestButtons()
+            changeNHDestButtons(state)
             break
         case newLondonOriginButton:
-            disableNHDestButtons()
+            changeNHDestButtons(state)
             break
         case southStationOriginButton:
-            disableMassDestButtons()
-            disableNYDestButtons()
+            changeMassDestButtons(state)
+            changeNYDestButtons(state)
             break
         case loganOriginButton:
-            disableMassDestButtons()
-            disableNYDestButtons()
+            changeMassDestButtons(state)
+            changeNYDestButtons(state)
             break
         case newYorkOriginButton:
-            disableMassDestButtons()
-            disableNYDestButtons()
-            newLondonDestinationButton.enabled = false;
+            changeMassDestButtons(state)
+            changeNYDestButtons(state)
+            newLondonDestinationButton.enabled = state;
         default:
             break
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
@@ -101,20 +114,17 @@ class FirstViewController: UIViewController {
         numberOfTicketsLabel.text = "\(Int(sender.value))"
     }
     
-    @IBAction func nhOriginPressed(sender: UIButton) {
-        if (sender.selected) {
-            
-        } else {
-            disableOriginButtons(sender)
-        }
+    @IBAction func originPressed(sender: UIButton) {
+        hasSelectedOrigin = !sender.selected
+        print(hasSelectedOrigin)
+        changeOriginButtons(sender, state: sender.selected)
         sender.selected = !sender.selected
     }
     
-    @IBAction func bostonOriginPressed(sender: UIButton) {
-        disableOriginButtons(sender)
-    }
-    @IBAction func newYorkOriginPressed(sender: UIButton) {
-        disableOriginButtons(sender)
+    @IBAction func destPressed(sender: UIButton) {
+        if (!hasSelectedOrigin) {
+            showAlert("Oops", message: "Please select an origin first")
+        }
     }
     
     override func didReceiveMemoryWarning() {
