@@ -134,15 +134,6 @@ class BuyTicketsViewController: UIViewController {
             break
         }
     }
-    
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message:
-            message, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
-        
-        presentViewController(alertController, animated: true, completion: nil)
-    }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
         

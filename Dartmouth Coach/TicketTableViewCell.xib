@@ -29,11 +29,21 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buy" translatesAutoresizingMaskIntoConstraints="NO" id="sIk-S3-uzX">
+                    <rect key="frame" x="8" y="61" width="25" height="26"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imgView" destination="sIk-S3-uzX" id="EcW-1t-nqM"/>
+            </connections>
             <point key="canvasLocation" x="259" y="192"/>
         </view>
     </objects>
+    <resources>
+        <image name="buy" width="30" height="30"/>
+    </resources>
 </document>

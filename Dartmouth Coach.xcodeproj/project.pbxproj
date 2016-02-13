@@ -16,6 +16,7 @@
 		498425221C6E71FD009309ED /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425211C6E71FD009309ED /* CalendarViewController.swift */; };
 		498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425231C6E764E009309ED /* TicketTableViewCell.swift */; };
 		498425261C6E7685009309ED /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498425251C6E7685009309ED /* TicketTableViewCell.xib */; };
+		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		498425211C6E71FD009309ED /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		498425231C6E764E009309ED /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		498425251C6E7685009309ED /* TicketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
+		498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+CS89.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				4984250D1C6E1D07009309ED /* AppDelegate.swift */,
 				4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */,
 				498425111C6E1D07009309ED /* TicketsViewController.swift */,
+				498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */,
 				498425131C6E1D07009309ED /* Main.storyboard */,
 				498425231C6E764E009309ED /* TicketTableViewCell.swift */,
 				498425251C6E7685009309ED /* TicketTableViewCell.xib */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */,
 				498425221C6E71FD009309ED /* CalendarViewController.swift in Sources */,
 				498425121C6E1D07009309ED /* TicketsViewController.swift in Sources */,
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
