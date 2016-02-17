@@ -17,6 +17,7 @@
 		498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425231C6E764E009309ED /* TicketTableViewCell.swift */; };
 		498425261C6E7685009309ED /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498425251C6E7685009309ED /* TicketTableViewCell.xib */; };
 		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
+		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		498425231C6E764E009309ED /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		498425251C6E7685009309ED /* TicketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
 		498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+CS89.swift"; sourceTree = "<group>"; };
+		5BDA638E5BBB3BFF09FC2497 /* Pods-Dartmouth Coach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.debug.xcconfig"; sourceTree = "<group>"; };
+		8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dartmouth_Coach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C72791FACB56C12F0704E06 /* Pods-Dartmouth Coach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				4984250C1C6E1D07009309ED /* Dartmouth Coach */,
 				4984250B1C6E1D07009309ED /* Products */,
+				734F24F16262F601BE8B8703 /* Pods */,
+				C5F8373E39A66D2D205CEBC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			path = "Dartmouth Coach";
 			sourceTree = "<group>";
 		};
+		734F24F16262F601BE8B8703 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA638E5BBB3BFF09FC2497 /* Pods-Dartmouth Coach.debug.xcconfig */,
+				9C72791FACB56C12F0704E06 /* Pods-Dartmouth Coach.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C5F8373E39A66D2D205CEBC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4984251E1C6E1D07009309ED /* Build configuration list for PBXNativeTarget "Dartmouth Coach" */;
 			buildPhases = (
+				EFC982524AB0126AE2A81D11 /* Check Pods Manifest.lock */,
 				498425061C6E1D07009309ED /* Sources */,
 				498425071C6E1D07009309ED /* Frameworks */,
 				498425081C6E1D07009309ED /* Resources */,
+				E1835C1E7B2027377FB9A7B6 /* Embed Pods Frameworks */,
+				D46071BFD2929D95AE3C8B3D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +172,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D46071BFD2929D95AE3C8B3D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1835C1E7B2027377FB9A7B6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFC982524AB0126AE2A81D11 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		498425061C6E1D07009309ED /* Sources */ = {
@@ -265,6 +340,7 @@
 		};
 		4984251F1C6E1D07009309ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDA638E5BBB3BFF09FC2497 /* Pods-Dartmouth Coach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Dartmouth Coach/Info.plist";
@@ -276,6 +352,7 @@
 		};
 		498425201C6E1D07009309ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C72791FACB56C12F0704E06 /* Pods-Dartmouth Coach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Dartmouth Coach/Info.plist";
@@ -304,6 +381,7 @@
 				498425201C6E1D07009309ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

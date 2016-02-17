@@ -327,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="1484" y="-381"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Calendar Appearance Delegate-->
         <scene sceneID="AWY-hL-bIA">
             <objects>
                 <viewController storyboardIdentifier="calendar" id="GWR-Pb-XPH" customClass="CalendarViewController" customModule="Dartmouth_Coach" customModuleProvider="target" sceneMemberID="viewController">
@@ -339,17 +339,44 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Goes Here!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txt-mT-Pqx">
-                                <rect key="frame" x="227" y="168" width="159" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-2I-yu9" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="32" width="560" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="RxY-Ji-j0R"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="GWR-Pb-XPH" id="8pk-Ck-wRV"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-fy-djJ" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="88" width="560" height="269"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="269" id="QaK-Gs-YtA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="GWR-Pb-XPH" id="Fha-9s-8pc"/>
+                                    <outlet property="calendarDelegate" destination="GWR-Pb-XPH" id="tUW-Pz-I5x"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="q2n-2I-yu9" secondAttribute="trailing" id="8nt-gB-2xH"/>
+                            <constraint firstItem="q2n-2I-yu9" firstAttribute="centerX" secondItem="WEB-t7-lEM" secondAttribute="centerX" id="QZd-zZ-Be2"/>
+                            <constraint firstItem="WMF-fy-djJ" firstAttribute="centerX" secondItem="WEB-t7-lEM" secondAttribute="centerX" id="Uor-uN-XD8"/>
+                            <constraint firstItem="WMF-fy-djJ" firstAttribute="top" secondItem="q2n-2I-yu9" secondAttribute="bottom" id="d08-35-ks0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="q2n-2I-yu9" secondAttribute="leading" id="iKJ-6M-ye2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WMF-fy-djJ" secondAttribute="trailing" id="poQ-2J-pAp"/>
+                            <constraint firstItem="q2n-2I-yu9" firstAttribute="top" secondItem="P0h-Kx-8yr" secondAttribute="bottom" constant="32" id="s9m-RA-WFQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="WMF-fy-djJ" secondAttribute="leading" id="zUM-Pd-Pgy"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="calendarView" destination="WMF-fy-djJ" id="x5D-XG-kkW"/>
+                        <outlet property="menuView" destination="q2n-2I-yu9" id="t09-TS-Rz2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jd4-F3-u9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
