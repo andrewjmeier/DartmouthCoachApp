@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -44,7 +44,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mul-Nk-Abi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mul-Nk-Abi">
                                 <rect key="frame" x="20" y="348" width="181" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="181" id="LX4-Ve-QXo"/>
@@ -63,7 +63,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Massachusetts/New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X4-vK-ePh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Massachusetts/New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X4-vK-ePh">
                                 <rect key="frame" x="20" y="289" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="kwx-kw-PtN"/>
@@ -72,14 +72,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-TJ-E6Y">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-TJ-E6Y">
                                 <rect key="frame" x="20" y="255" width="171" height="30"/>
                                 <state key="normal" title="Hanover"/>
                                 <connections>
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="5iZ-ba-JeX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLC-wM-KMg">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLC-wM-KMg">
                                 <rect key="frame" x="215" y="255" width="170" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="oj8-v6-TAK"/>
@@ -94,70 +94,70 @@
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="yYD-rL-Dgm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHo-A1-F6b">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHo-A1-F6b">
                                 <rect key="frame" x="409" y="255" width="171" height="30"/>
                                 <state key="normal" title="New London"/>
                                 <connections>
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="tJr-tQ-et0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sW-U7-Eim">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sW-U7-Eim">
                                 <rect key="frame" x="20" y="314" width="171" height="30"/>
                                 <state key="normal" title="South Station"/>
                                 <connections>
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="1lL-ok-WQa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpa-HF-Uog">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpa-HF-Uog">
                                 <rect key="frame" x="215" y="314" width="170" height="30"/>
                                 <state key="normal" title="Logan Airport"/>
                                 <connections>
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8XW-WH-TYN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfW-a4-uvd">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfW-a4-uvd">
                                 <rect key="frame" x="409" y="314" width="171" height="30"/>
                                 <state key="normal" title="New York City"/>
                                 <connections>
                                     <action selector="originPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Gyn-A8-uV5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btA-0l-DjP">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btA-0l-DjP">
                                 <rect key="frame" x="20" y="418" width="171" height="30"/>
                                 <state key="normal" title="Hanover"/>
                                 <connections>
                                     <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qtI-vl-Kcg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKN-68-4qY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKN-68-4qY">
                                 <rect key="frame" x="215" y="418" width="170" height="30"/>
                                 <state key="normal" title="Lebanon"/>
                                 <connections>
                                     <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="U5b-RH-AMt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6w-gV-IU7">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6w-gV-IU7">
                                 <rect key="frame" x="409" y="418" width="171" height="30"/>
                                 <state key="normal" title="New London"/>
                                 <connections>
                                     <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nIH-6x-jnB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfL-vo-gRY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfL-vo-gRY">
                                 <rect key="frame" x="20" y="477" width="171" height="30"/>
                                 <state key="normal" title="South Station"/>
                                 <connections>
                                     <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="HlD-Vw-1ax"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-Ra-cp4">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-Ra-cp4">
                                 <rect key="frame" x="215" y="477" width="170" height="30"/>
                                 <state key="normal" title="Logan Airport"/>
                                 <connections>
                                     <action selector="destPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="e4I-cV-RpG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-1v-hrq">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-1v-hrq">
                                 <rect key="frame" x="409" y="477" width="171" height="30"/>
                                 <state key="normal" title="New York City"/>
                                 <connections>
@@ -200,7 +200,7 @@
                                     <action selector="stepperValueChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="T7h-cp-pLB"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Hampshire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-9a-PKI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Hampshire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-9a-PKI">
                                 <rect key="frame" x="20" y="393" width="122" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ouH-ws-lxo"/>
@@ -210,7 +210,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Massachusetts/New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwu-Ab-MzC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Massachusetts/New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwu-Ab-MzC">
                                 <rect key="frame" x="20" y="452" width="194" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Cjb-4O-snm"/>
@@ -459,7 +459,7 @@
         <!--Information-->
         <scene sceneID="tdd-M5-eh3">
             <objects>
-                <viewController id="xD3-Je-439" sceneMemberID="viewController">
+                <viewController id="xD3-Je-439" customClass="InfoViewController" customModule="Dartmouth_Coach" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FJt-0p-hFj"/>
                         <viewControllerLayoutGuide type="bottom" id="Cu6-fn-ibN"/>
@@ -477,6 +477,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3H-sl-EW8">
                                 <rect key="frame" x="98" y="311" width="58" height="30"/>
                                 <state key="normal" title="Hanover"/>
+                                <connections>
+                                    <action selector="busStopButtonClicked:" destination="xD3-Je-439" eventType="touchUpInside" id="L2J-fy-M7w"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qY0-vL-A9k">
                                 <rect key="frame" x="208" y="311" width="59" height="30"/>
@@ -512,10 +515,10 @@
             </objects>
             <point key="canvasLocation" x="1484" y="1736"/>
         </scene>
-        <!--View Controller-->
+        <!--Bus Stop View Controller-->
         <scene sceneID="ope-5N-Win">
             <objects>
-                <viewController id="8zZ-WS-fcz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="8zZ-WS-fcz" customClass="BusStopViewController" customModule="Dartmouth_Coach" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zSE-3N-dHo"/>
                         <viewControllerLayoutGuide type="bottom" id="gLu-LU-53u"/>
@@ -523,12 +526,29 @@
                     <view key="view" contentMode="scaleToFill" id="aEn-lC-vyd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oDq-z4-aFn">
+                                <rect key="frame" x="20" y="76" width="560" height="302"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="302" id="MPT-w3-i9o"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oDq-z4-aFn" firstAttribute="top" secondItem="zSE-3N-dHo" secondAttribute="bottom" constant="12" id="VRL-mN-O5R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oDq-z4-aFn" secondAttribute="trailing" id="Wq4-kZ-OqF"/>
+                            <constraint firstItem="oDq-z4-aFn" firstAttribute="leading" secondItem="aEn-lC-vyd" secondAttribute="leadingMargin" id="mjp-n6-jfK"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="oDq-z4-aFn" id="tKt-4x-Dx8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdo-OD-saM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="1797"/>
+            <point key="canvasLocation" x="2317" y="1736"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
