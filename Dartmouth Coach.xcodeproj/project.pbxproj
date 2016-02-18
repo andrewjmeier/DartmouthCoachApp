@@ -17,7 +17,7 @@
 		498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425231C6E764E009309ED /* TicketTableViewCell.swift */; };
 		498425261C6E7685009309ED /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498425251C6E7685009309ED /* TicketTableViewCell.xib */; };
 		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
-		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; };
 		B53EB0D31C72ADE800E194D8 /* BusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */; };
 		B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
