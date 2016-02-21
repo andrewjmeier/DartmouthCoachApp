@@ -16,11 +16,17 @@
 
 import UIKit
 import CVCalendar
+import PassKit
 
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
+    
+    @IBOutlet weak var applePayButton: UIButton!
+    
+    let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex]
+    let ApplePaySwagMerchantID = "merchant.com.cs89.monkeyinthemiddleapps" // Fill in your merchant ID here!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +45,39 @@ class CalendarViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func purchase(sender: AnyObject) {
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = ApplePaySwagMerchantID
+        request.supportedNetworks = SupportedPaymentNetworks
+        request.merchantCapabilities = PKMerchantCapability.Capability3DS
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+        request.requiredShippingAddressFields = PKAddressField.Email
+        
+        var summaryItems = [PKPaymentSummaryItem]()
+        summaryItems.append(PKPaymentSummaryItem(label: "Dartmouth Coach Ticket", amount: 56.00))
+        
+        summaryItems.append(PKPaymentSummaryItem(label: "Dartmouth Coach", amount: 56))
+        
+        request.paymentSummaryItems = summaryItems
+        
+        let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+        applePayController.delegate = self
+        self.presentViewController(applePayController, animated: true, completion: nil)
+    }
+
+}
+
+extension CalendarViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)) {
+        completion(PKPaymentAuthorizationStatus.Success)
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
