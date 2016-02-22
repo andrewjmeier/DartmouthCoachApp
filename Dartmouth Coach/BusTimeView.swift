@@ -12,7 +12,25 @@ protocol BusTimeViewDelegate {
     func timeClicked(sender: BusTimeView);
 }
 
+@IBDesignable
 class BusTimeView: UIView {
+    
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+            layer.masksToBounds = cornerRadius > 0
+        }
+    }
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    @IBInspectable var borderColor: UIColor? {
+        didSet {
+            layer.borderColor = borderColor?.CGColor
+        }
+    }
     
     @IBOutlet weak var depTime: UILabel!
     @IBOutlet weak var arrTime: UILabel!
@@ -22,14 +40,35 @@ class BusTimeView: UIView {
     func setupTimes(dep: String, arr: String) {
         depTime.text = dep
         arrTime.text = arr
-        userInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: "handleTap:")
-        addGestureRecognizer(gesture)
     }
     
-    func handleTap(recognizer: UITapGestureRecognizer) {
+    func removeBorder() {
+        layer.cornerRadius = 0
+        layer.masksToBounds = false
+        layer.borderWidth = 0
+    }
+    
+    func tintBackground() {
+        backgroundColor = tintColor
+        print("clicked")
+    }
+    
+    func untintBackground() {
+        backgroundColor = UIColor.clearColor()
+    }
+    
+    @IBAction func tapCancel(sender: AnyObject) {
+        untintBackground()
+    }
+    
+    @IBAction func tapStart(sender: AnyObject) {
+        tintBackground()
+    }
+    
+    @IBAction func handleTap(sender: AnyObject) {
         delegate?.timeClicked(self)
     }
+
     
     /*
     // Only override drawRect: if you perform custom drawing.

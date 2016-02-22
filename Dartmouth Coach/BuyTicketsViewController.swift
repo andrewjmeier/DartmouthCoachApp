@@ -30,6 +30,9 @@ class BuyTicketsViewController: UIViewController {
     
     var hasSelectedOrigin: Bool!
     
+    var origin: String?
+    var destination: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -141,6 +144,7 @@ class BuyTicketsViewController: UIViewController {
     }
     
     @IBAction func originPressed(sender: UIButton) {
+        origin = sender.currentTitle
         hasSelectedOrigin = !sender.selected
         print(hasSelectedOrigin)
         changeOriginButtons(sender, state: sender.selected)
@@ -148,10 +152,12 @@ class BuyTicketsViewController: UIViewController {
     }
     
     @IBAction func destPressed(sender: UIButton) {
+        destination = sender.currentTitle
         if (hasSelectedOrigin == true) {
             // transition to next screen?
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("calendar")
+            let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
+            vc.setLocations(origin!, arrival: destination!)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             changeDestButtons(sender, state: sender.selected)

@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49367D511C7A728800416E38 /* Dartmouth Coach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dartmouth Coach.entitlements"; sourceTree = "<group>"; };
 		4984250A1C6E1D07009309ED /* Dartmouth Coach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dartmouth Coach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4984250D1C6E1D07009309ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		4984250C1C6E1D07009309ED /* Dartmouth Coach */ = {
 			isa = PBXGroup;
 			children = (
+				49367D511C7A728800416E38 /* Dartmouth Coach.entitlements */,
 				4984250D1C6E1D07009309ED /* AppDelegate.swift */,
 				4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */,
 				498425111C6E1D07009309ED /* TicketsViewController.swift */,

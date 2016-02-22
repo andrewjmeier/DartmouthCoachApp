@@ -17,16 +17,55 @@
 import UIKit
 import CVCalendar
 
+struct BusSchedule {
+    var departureLocation = "Hanover"
+    var departureTime:Int = 0;
+    var departTime: String {
+        get {
+            if (departureTime < 12) {
+                return "\(departureTime):00 am"
+            } else if (departureTime == 12) {
+                return "\(departureTime):00 pm"
+            } else {
+                return "\(departureTime - 12):00 pm"
+            }
+        }
+    }
+    var arrivalLocation = "Logan Airport"
+    var arrivalTime:Int = 0;
+    var arrTime: String {
+        get {
+            if (arrivalTime < 12) {
+                return "\(arrivalTime):00 am"
+            } else if (arrivalTime == 12) {
+                return "\(arrivalTime):00 pm"
+            } else {
+                return "\(arrivalTime - 12):00 pm"
+            }
+        }
+    }
+}
+
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var scheduleList:[BusSchedule]?
+    var departure: String?
+    var arrival: String?
+    var isArrival = false
+    var isOneWay = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Select Your Departure Day"
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        title = isArrival ? "Select Your Arrival Day" : "Select Your Departure Day"
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,6 +78,76 @@ class CalendarViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setLocations(departure: String, arrival: String) {
+        self.departure = departure
+        self.arrival = arrival
+        
+        let first = BusSchedule(departureLocation: departure, departureTime: 7, arrivalLocation: arrival, arrivalTime: 10)
+        let second = BusSchedule(departureLocation: departure, departureTime: 9, arrivalLocation: arrival, arrivalTime: 12)
+        let third = BusSchedule(departureLocation: departure, departureTime: 11, arrivalLocation: arrival, arrivalTime: 14)
+        let fourth = BusSchedule(departureLocation: departure, departureTime: 13, arrivalLocation: arrival, arrivalTime: 16)
+        let fifth = BusSchedule(departureLocation: departure, departureTime: 15, arrivalLocation: arrival, arrivalTime: 18)
+        let sixth = BusSchedule(departureLocation: departure, departureTime: 17, arrivalLocation: arrival, arrivalTime: 20)
+        let seventh = BusSchedule(departureLocation: departure, departureTime: 19, arrivalLocation: arrival, arrivalTime: 22)
+        let eigth = BusSchedule(departureLocation: departure, departureTime: 21, arrivalLocation: arrival, arrivalTime: 24)
+        scheduleList = [first, second, third, fourth, fifth, sixth, seventh, eigth]
+    }
+    
+    func setupPossibleTimes() {
+        
+        scrollView.removeAllSubviews()
+        
+        var tempList:[BusSchedule] = []
+        for (var i = 0; i < 8; i++) {
+            let random = Double(arc4random_uniform(10))
+            if (random > 1) {
+                tempList.append(scheduleList![i])
+            }
+        }
+        
+        print(tempList)
+        var x = 0;
+        let y = 0;
+        
+        let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
+        timeView.depTime.text = "Departure\nTime:"
+        timeView.arrTime.text = "Arrival\nTime:"
+        timeView.frame.origin = CGPoint(x: x, y: y)
+        timeView.removeBorder()
+        timeView.delegate = self
+        scrollView.addSubview(timeView)
+        x += Int(timeView.frame.size.width) + 12
+        
+        
+        for schedule:BusSchedule in tempList {
+            let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
+            timeView.depTime.text = schedule.departTime
+            timeView.arrTime.text = schedule.arrTime
+            timeView.frame.origin = CGPoint(x: x, y: y)
+            scrollView.addSubview(timeView)
+            timeView.delegate = self
+            x += Int(timeView.frame.size.width) + 12
+        }
+        scrollView.contentSize = CGSize(width: x, height: Int(scrollView.frame.size.height))
+
+    }
+}
+
+extension CalendarViewController: BusTimeViewDelegate {
+    func timeClicked(sender: BusTimeView) {
+        if (isArrival || isOneWay) {
+            let controller = UIAlertController.showAlert("Buy", message: "Purchse your ticket using Apple Pay!")
+            presentViewController(controller, animated: true, completion: nil)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
+            vc.setLocations(departure!, arrival: arrival!)
+            vc.isArrival = true
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }
 
@@ -66,11 +175,7 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-        
-        let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
-        timeView.frame.origin = CGPoint(x: 100, y: 400)
-        view.addSubview(timeView);
-        
+        setupPossibleTimes()
     }
     
     func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
