@@ -68,12 +68,23 @@ class CalendarViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         title = isArrival ? "Select Your Arrival Day" : "Select Your Departure Day"
         
         scrollView.removeAllSubviews()
-
-        // setup scroll view for current day! 
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // setup scroll view for current day
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day], fromDate: date)
+        let day = components.day
+        setupPossibleTimes(day)
+    }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
