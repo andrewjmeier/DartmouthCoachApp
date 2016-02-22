@@ -24,10 +24,18 @@ class InfoViewController: UIViewController {
 
     @IBAction func busStopButtonClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("map")
-       // vc.type = "Hanover"
+        let vc = storyboard.instantiateViewControllerWithIdentifier("map") as! BusStopViewController
+        vc.type = sender.currentTitle
         navigationController?.pushViewController(vc, animated: true)
     }
+    @IBAction func scheduleButtonClicked(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("buy") as! BuyTicketsViewController
+        vc.hideTopView = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

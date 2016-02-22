@@ -27,14 +27,24 @@ class BuyTicketsViewController: UIViewController {
     @IBOutlet weak var numberOfTicketsLabel: UILabel!
     @IBOutlet weak var numberOfTicketsStepper: UIStepper!
     
+    @IBOutlet weak var ticketNumPrompt: UILabel!
     
     var hasSelectedOrigin: Bool!
+    
+    var hideTopView = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hasSelectedOrigin = false
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if hideTopView {
+            ticketTypeControl.hidden = true
+            numberOfTicketsLabel.hidden = true
+            numberOfTicketsStepper.hidden = true
+        }
+        
     }
     
     func changeNHOriginButtons(state: Bool) {
