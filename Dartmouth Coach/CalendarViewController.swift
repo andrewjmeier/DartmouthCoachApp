@@ -59,6 +59,8 @@ class CalendarViewController: UIViewController {
     var isOneWay = false
     var numTickets = 1
     
+    var possibleTimes = [Int: [BusSchedule]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,6 +69,10 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         title = isArrival ? "Select Your Arrival Day" : "Select Your Departure Day"
+        
+        scrollView.removeAllSubviews()
+
+        // setup scroll view for current day! 
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,21 +100,28 @@ class CalendarViewController: UIViewController {
         let seventh = BusSchedule(departureLocation: departure, departureTime: 19, arrivalLocation: arrival, arrivalTime: 22)
         let eigth = BusSchedule(departureLocation: departure, departureTime: 21, arrivalLocation: arrival, arrivalTime: 24)
         scheduleList = [first, second, third, fourth, fifth, sixth, seventh, eigth]
+        
+        buildSchedule()
     }
     
-    func setupPossibleTimes() {
+    func buildSchedule() {
+        for i in 0...31 {
+            var tempList:[BusSchedule] = []
+            for (var i = 0; i < 8; i++) {
+                let random = Double(arc4random_uniform(10))
+                if (random > (5 + (Double(i) * 0.1))) {
+                    tempList.append(scheduleList![i])
+                }
+            }
+            possibleTimes[i] = tempList
+        }
+    }
+    
+    func setupPossibleTimes(day: Int) {
+        
+        let tempList = possibleTimes[day]
         
         scrollView.removeAllSubviews()
-        
-        var tempList:[BusSchedule] = []
-        for (var i = 0; i < 8; i++) {
-            let random = Double(arc4random_uniform(10))
-            if (random > 1) {
-                tempList.append(scheduleList![i])
-            }
-        }
-        
-        print(tempList)
         var x = 0;
         let y = 0;
         
@@ -122,7 +135,7 @@ class CalendarViewController: UIViewController {
         x += Int(timeView.frame.size.width) + 12
         
         
-        for schedule:BusSchedule in tempList {
+        for schedule:BusSchedule in tempList! {
             let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
             timeView.depTime.text = schedule.departTime
             timeView.arrTime.text = schedule.arrTime
@@ -177,7 +190,7 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-        setupPossibleTimes()
+        setupPossibleTimes(dayView.date.day)
     }
     
     func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
@@ -185,40 +198,46 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     }
     
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
-        let day = dayView.date.day
-        let randomDay = Int(arc4random_uniform(31))
-        if day == randomDay {
-            return true
-        }
-        
-        return false
+//        let day = dayView.date.day
+//        let schedule = possibleTimes[day]
+//        if schedule?.count > 0 {
+//            return true
+//        }
+//        
+        return true
     }
     
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
+        let day = dayView.date.day
+        let schedule = possibleTimes[day]
+        let num = schedule!.count
         
-        let red = CGFloat(arc4random_uniform(600) / 255)
-        let green = CGFloat(arc4random_uniform(600) / 255)
-        let blue = CGFloat(arc4random_uniform(600) / 255)
-        
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        
-        let numberOfDots = Int(arc4random_uniform(3) + 1)
-        switch(numberOfDots) {
-        case 2:
+        switch (num) {
+        case _ where num < 1:
+            let color = UIColor.colorFromRGB(0xFF2000)
+            return [color]
+        case _ where num < 3:
+            let color = UIColor.colorFromRGB(0xFFC000)
+            return [color]
+        case _ where num < 5:
+            let color = UIColor.colorFromRGB(0xD0FF00)
             return [color, color]
-        case 3:
-            return [color, color, color]
+        case _ where num < 7:
+            let color = UIColor.colorFromRGB(0x70FF00)
+            return [color, color]
         default:
-            return [color] // return 1 dot
+            let color = UIColor.colorFromRGB(0x10FF00)
+            return [color, color, color]
+            
         }
     }
     
     func dotMarker(shouldMoveOnHighlightingOnDayView dayView: CVCalendarDayView) -> Bool {
-        return true
+        return false
     }
     
     func dotMarker(sizeOnDayView dayView: DayView) -> CGFloat {
-        return 13
+        return 15
     }
     
     

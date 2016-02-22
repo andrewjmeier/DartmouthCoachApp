@@ -513,9 +513,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmB-tU-yG9">
                                 <rect key="frame" x="184" y="159" width="94" height="30"/>
                                 <state key="normal" title="Bus Schedule"/>
-                                <connections>
-                                    <action selector="purchase:" destination="xD3-Je-439" eventType="touchUpInside" id="uMW-wk-3tk"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjk-0J-y4n">
                                 <rect key="frame" x="98" y="432" width="97" height="30"/>
