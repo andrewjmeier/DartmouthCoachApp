@@ -27,7 +27,6 @@ class BuyTicketsViewController: UIViewController {
     @IBOutlet weak var numberOfTicketsLabel: UILabel!
     @IBOutlet weak var numberOfTicketsStepper: UIStepper!
     
-    
     var hasSelectedOrigin: Bool!
     
     var origin: String?
@@ -157,6 +156,8 @@ class BuyTicketsViewController: UIViewController {
             // transition to next screen?
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
+            vc.numTickets = Int(numberOfTicketsStepper.value)
+            vc.isOneWay = ticketTypeControl.selectedSegmentIndex == 0
             vc.setLocations(origin!, arrival: destination!)
             navigationController?.pushViewController(vc, animated: true)
         } else {

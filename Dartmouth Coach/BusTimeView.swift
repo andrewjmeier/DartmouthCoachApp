@@ -59,15 +59,28 @@ class BusTimeView: UIView {
     
     @IBAction func tapCancel(sender: AnyObject) {
         untintBackground()
+        depTime.textColor = UIColor.blackColor()
+        arrTime.textColor = UIColor.blackColor()
+        depTime.font = UIFont.systemFontOfSize(17.0)
+        arrTime.font = UIFont.systemFontOfSize(17.0)
     }
     
     @IBAction func tapStart(sender: AnyObject) {
-        tintBackground()
+        if depTime.text != "Departure\nTime:" {
+            tintBackground()
+            depTime.textColor = UIColor.whiteColor()
+            arrTime.textColor = UIColor.whiteColor()
+            depTime.font = UIFont.boldSystemFontOfSize(17.0)
+            arrTime.font = UIFont.boldSystemFontOfSize(17.0)
+        }
     }
     
     @IBAction func handleTap(sender: AnyObject) {
-        delegate?.timeClicked(self)
+        if depTime.text != "Departure\nTime:" {
+            delegate?.timeClicked(self)
+        }
     }
+        
 
     
     /*

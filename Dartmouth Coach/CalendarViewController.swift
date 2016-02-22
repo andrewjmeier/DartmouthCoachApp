@@ -57,6 +57,7 @@ class CalendarViewController: UIViewController {
     var arrival: String?
     var isArrival = false
     var isOneWay = false
+    var numTickets = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +145,7 @@ extension CalendarViewController: BusTimeViewDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
             vc.setLocations(departure!, arrival: arrival!)
+            vc.numTickets = numTickets
             vc.isArrival = true
             navigationController?.pushViewController(vc, animated: true)
         }
