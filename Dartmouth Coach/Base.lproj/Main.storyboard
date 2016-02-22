@@ -544,21 +544,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oDq-z4-aFn">
-                                <rect key="frame" x="20" y="76" width="560" height="302"/>
+                                <rect key="frame" x="20" y="104" width="560" height="302"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="302" id="MPT-w3-i9o"/>
                                 </constraints>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mr-55-Rq3">
+                                <rect key="frame" x="20" y="445" width="560" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stop Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YId-Xh-hro">
+                                <rect key="frame" x="20" y="72" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PA-a2-z6Y">
+                                <rect key="frame" x="20" y="416" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oDq-z4-aFn" firstAttribute="top" secondItem="zSE-3N-dHo" secondAttribute="bottom" constant="12" id="VRL-mN-O5R"/>
+                            <constraint firstItem="oDq-z4-aFn" firstAttribute="top" secondItem="zSE-3N-dHo" secondAttribute="bottom" constant="40" id="VRL-mN-O5R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oDq-z4-aFn" secondAttribute="trailing" id="Wq4-kZ-OqF"/>
                             <constraint firstItem="oDq-z4-aFn" firstAttribute="leading" secondItem="aEn-lC-vyd" secondAttribute="leadingMargin" id="mjp-n6-jfK"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="StopAddress" destination="9PA-a2-z6Y" id="jHk-3E-ErD"/>
+                        <outlet property="StopInfo" destination="4mr-55-Rq3" id="kpo-sF-PGx"/>
+                        <outlet property="StopTitle" destination="YId-Xh-hro" id="y2V-Me-aPK"/>
                         <outlet property="mapView" destination="oDq-z4-aFn" id="tKt-4x-Dx8"/>
                     </connections>
                 </viewController>
