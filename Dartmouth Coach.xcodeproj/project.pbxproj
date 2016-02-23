@@ -17,6 +17,7 @@
 		498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425231C6E764E009309ED /* TicketTableViewCell.swift */; };
 		498425261C6E7685009309ED /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498425251C6E7685009309ED /* TicketTableViewCell.xib */; };
 		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
+		E49761C11C72B5F100A8A8FD /* ActiveTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49761C01C72B5F100A8A8FD /* ActiveTicketViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		498425231C6E764E009309ED /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		498425251C6E7685009309ED /* TicketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
 		498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+CS89.swift"; sourceTree = "<group>"; };
+		E49761C01C72B5F100A8A8FD /* ActiveTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTicketViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				498425111C6E1D07009309ED /* TicketsViewController.swift */,
 				498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */,
 				498425131C6E1D07009309ED /* Main.storyboard */,
+				E49761C01C72B5F100A8A8FD /* ActiveTicketViewController.swift */,
 				498425231C6E764E009309ED /* TicketTableViewCell.swift */,
 				498425251C6E7685009309ED /* TicketTableViewCell.xib */,
 				498425211C6E71FD009309ED /* CalendarViewController.swift */,
@@ -157,6 +160,7 @@
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
 				498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */,
+				E49761C11C72B5F100A8A8FD /* ActiveTicketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +308,7 @@
 				498425201C6E1D07009309ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
