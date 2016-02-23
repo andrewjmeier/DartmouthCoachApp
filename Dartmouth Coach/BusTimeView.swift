@@ -35,6 +35,8 @@ class BusTimeView: UIView {
     @IBOutlet weak var depTime: UILabel!
     @IBOutlet weak var arrTime: UILabel!
     
+    
+    var schedule: BusSchedule?
     var delegate: BusTimeViewDelegate?
 
     func setupTimes(dep: String, arr: String) {
