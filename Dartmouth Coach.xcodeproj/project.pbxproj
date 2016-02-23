@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492F37351C7B9872006EEA51 /* UIColor+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F37341C7B9872006EEA51 /* UIColor+CS89.swift */; };
 		4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250D1C6E1D07009309ED /* AppDelegate.swift */; };
 		498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */; };
 		498425121C6E1D07009309ED /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425111C6E1D07009309ED /* TicketsViewController.swift */; };
@@ -17,12 +18,16 @@
 		498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425231C6E764E009309ED /* TicketTableViewCell.swift */; };
 		498425261C6E7685009309ED /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498425251C6E7685009309ED /* TicketTableViewCell.xib */; };
 		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
+		49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA646A1C79264300F3631E /* BusTimeView.swift */; };
+		49EA646D1C79265800F3631E /* BusTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EA646C1C79265800F3631E /* BusTimeView.xib */; };
 		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B53EB0D31C72ADE800E194D8 /* BusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */; };
 		B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492F37341C7B9872006EEA51 /* UIColor+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+CS89.swift"; sourceTree = "<group>"; };
+		49367D511C7A728800416E38 /* Dartmouth Coach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dartmouth Coach.entitlements"; sourceTree = "<group>"; };
 		4984250A1C6E1D07009309ED /* Dartmouth Coach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dartmouth Coach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4984250D1C6E1D07009309ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +40,8 @@
 		498425231C6E764E009309ED /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		498425251C6E7685009309ED /* TicketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
 		498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+CS89.swift"; sourceTree = "<group>"; };
-		49EA646F1C7A32ED00F3631E /* Dartmouth Coach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dartmouth Coach.entitlements"; sourceTree = "<group>"; };
+		49EA646A1C79264300F3631E /* BusTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusTimeView.swift; sourceTree = "<group>"; };
+		49EA646C1C79265800F3631E /* BusTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusTimeView.xib; sourceTree = "<group>"; };
 		5BDA638E5BBB3BFF09FC2497 /* Pods-Dartmouth Coach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.debug.xcconfig"; sourceTree = "<group>"; };
 		8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dartmouth_Coach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C72791FACB56C12F0704E06 /* Pods-Dartmouth Coach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,14 +82,17 @@
 		4984250C1C6E1D07009309ED /* Dartmouth Coach */ = {
 			isa = PBXGroup;
 			children = (
-				49EA646F1C7A32ED00F3631E /* Dartmouth Coach.entitlements */,
+				49367D511C7A728800416E38 /* Dartmouth Coach.entitlements */,
 				4984250D1C6E1D07009309ED /* AppDelegate.swift */,
 				4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */,
 				498425111C6E1D07009309ED /* TicketsViewController.swift */,
 				498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */,
+				492F37341C7B9872006EEA51 /* UIColor+CS89.swift */,
 				B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */,
 				B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */,
 				498425131C6E1D07009309ED /* Main.storyboard */,
+				49EA646A1C79264300F3631E /* BusTimeView.swift */,
+				49EA646C1C79265800F3631E /* BusTimeView.xib */,
 				498425231C6E764E009309ED /* TicketTableViewCell.swift */,
 				498425251C6E7685009309ED /* TicketTableViewCell.xib */,
 				498425211C6E71FD009309ED /* CalendarViewController.swift */,
@@ -178,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EA646D1C79265800F3631E /* BusTimeView.xib in Resources */,
 				4984251A1C6E1D07009309ED /* LaunchScreen.storyboard in Resources */,
 				498425171C6E1D07009309ED /* Assets.xcassets in Resources */,
 				498425151C6E1D07009309ED /* Main.storyboard in Resources */,
@@ -242,10 +252,12 @@
 			files = (
 				498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */,
 				B53EB0D31C72ADE800E194D8 /* BusStopViewController.swift in Sources */,
+				492F37351C7B9872006EEA51 /* UIColor+CS89.swift in Sources */,
 				498425221C6E71FD009309ED /* CalendarViewController.swift in Sources */,
 				498425121C6E1D07009309ED /* TicketsViewController.swift in Sources */,
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
+				49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */,
 				B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */,
 				498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */,
 			);
@@ -360,11 +372,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dartmouth Coach/Dartmouth Coach.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Dartmouth Coach/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cs89.Dartmouth-Coach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -374,11 +389,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dartmouth Coach/Dartmouth Coach.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Dartmouth Coach/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cs89.Dartmouth-Coach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
