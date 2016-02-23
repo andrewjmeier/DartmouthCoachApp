@@ -13,7 +13,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     var prefs: NSUserDefaults!
     var tickets = [NSData]()
-    let demo = true
+    let demo = false
     
     /*
         Data structure for tickets

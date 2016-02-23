@@ -58,8 +58,12 @@ class CalendarViewController: UIViewController {
     var isArrival = false
     var isOneWay = false
     var numTickets = 1
+    var previousTicket: BusSchedule?
+    var selectedDay: Int?
+    var previousDay: Int?
     
     var possibleTimes = [Int: [BusSchedule]]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,17 +149,19 @@ class CalendarViewController: UIViewController {
         scrollView.addSubview(timeView)
         x += Int(timeView.frame.size.width) + 12
         
-        
-        for schedule:BusSchedule in tempList! {
-            let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
-            timeView.depTime.text = schedule.departTime
-            timeView.arrTime.text = schedule.arrTime
-            timeView.frame.origin = CGPoint(x: x, y: y)
-            scrollView.addSubview(timeView)
-            timeView.delegate = self
-            x += Int(timeView.frame.size.width) + 12
+        if let list = tempList {
+            for schedule:BusSchedule in list {
+                let timeView: BusTimeView = (NSBundle.mainBundle().loadNibNamed("BusTimeView", owner: self, options: nil))[0] as! BusTimeView
+                timeView.depTime.text = schedule.departTime
+                timeView.arrTime.text = schedule.arrTime
+                timeView.frame.origin = CGPoint(x: x, y: y)
+                timeView.schedule = schedule
+                scrollView.addSubview(timeView)
+                timeView.delegate = self
+                x += Int(timeView.frame.size.width) + 12
+            }
+            scrollView.contentSize = CGSize(width: x, height: Int(scrollView.frame.size.height))
         }
-        scrollView.contentSize = CGSize(width: x, height: Int(scrollView.frame.size.height))
 
     }
 }
@@ -163,22 +169,66 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: BusTimeViewDelegate {
     func timeClicked(sender: BusTimeView) {
         if (isArrival || isOneWay) {
-            let controller = UIAlertController.showAlert("Buy", message: "Purchse your ticket using Apple Pay!")
-            presentViewController(controller, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Buy", message:
+                "Purchase your ticket using Apple Pay", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { [unowned self](action) -> Void in
+                if let sch = self.previousTicket {
+                    self.purcahseTicket(sch, day: self.previousDay!)
+                } else {
+                    print("NOT BUYING PREVIOUS TICKET")
+                }
+                if let sch = sender.schedule {
+                    self.purcahseTicket(sch, day: self.selectedDay!)
+                } else {
+                    print("NOT BUYING ticket")
+                }
+                
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }))
+            
+            presentViewController(alertController, animated: true, completion: nil)
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
             vc.setLocations(departure!, arrival: arrival!)
             vc.numTickets = numTickets
             vc.isArrival = true
+            vc.previousTicket = sender.schedule
+            vc.previousDay = selectedDay
             navigationController?.pushViewController(vc, animated: true)
         }
         
     }
+    
+    func purcahseTicket(schedule: BusSchedule, day: Int) {
+        var tickets = NSUserDefaults.standardUserDefaults().arrayForKey("tickets") as? [NSData]
+        
+        let ticket1 = TicketsViewController.TicketData()
+        
+        let date = NSDate()
+        
+        let calendar = NSCalendar.currentCalendar()
+        let comps = calendar.components([.Year, .Month, .Day, .Hour], fromDate: date)
+        comps.hour = schedule.departureTime
+        comps.day = day
+        let newDate = calendar.dateFromComponents(comps)
+        comps.hour = schedule.arrivalTime
+        let arrDate = calendar.dateFromComponents(comps)
+        
+        ticket1.initWithInfo(schedule.departureLocation, destination: schedule.arrivalLocation, departureTime: newDate!, arrivalTime: arrDate!, activated: false, purchaseDate: NSDate())
+        
+        tickets!.append(ticket1.toNSData())
+        
+        NSUserDefaults.standardUserDefaults().setObject(tickets, forKey: "tickets")
+        
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
 }
 
 extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
-        
+    
     /// Required method to implement!
     func presentationMode() -> CalendarMode {
         return .MonthView
@@ -201,7 +251,16 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-        setupPossibleTimes(dayView.date.day)
+        
+        selectedDay = dayView.date.day
+        
+        let date = CVDate(date: NSDate())
+        
+        if dayView.date.month > date.month || (dayView.date.day >= date.day && dayView.date.month == date.month) {
+            setupPossibleTimes(dayView.date.day)
+        } else {
+            scrollView.removeAllSubviews()
+        }
     }
     
     func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
@@ -209,19 +268,27 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     }
     
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
+        
+        let date = CVDate(date: NSDate())
+        
+        return dayView.date.month > date.month || (dayView.date.day >= date.day && dayView.date.month == date.month)
+            
+        
 //        let day = dayView.date.day
 //        let schedule = possibleTimes[day]
 //        if schedule?.count > 0 {
 //            return true
 //        }
 //        
-        return true
     }
     
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
         let day = dayView.date.day
         let schedule = possibleTimes[day]
-        let num = schedule!.count
+        var num = 0
+        if let sch = schedule {
+            num = sch.count
+        }
         
         switch (num) {
         case _ where num < 1:
