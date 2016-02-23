@@ -164,7 +164,12 @@ extension CalendarViewController: BusTimeViewDelegate {
     func timeClicked(sender: BusTimeView) {
         if (isArrival || isOneWay) {
             let controller = UIAlertController.showAlert("Buy", message: "Purchse your ticket using Apple Pay!")
-            presentViewController(controller, animated: true, completion: nil)
+            presentViewController(controller, animated: true, completion: { [unowned self]() -> Void in
+                // hack to get around double animation bug
+                self.delay(1){
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+            })
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
@@ -174,6 +179,15 @@ extension CalendarViewController: BusTimeViewDelegate {
             navigationController?.pushViewController(vc, animated: true)
         }
         
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
 }
 
@@ -201,7 +215,14 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-        setupPossibleTimes(dayView.date.day)
+        
+        let date = CVDate(date: NSDate())
+        
+        if dayView.date.month > date.month || (dayView.date.day >= date.day && dayView.date.month == date.month) {
+            setupPossibleTimes(dayView.date.day)
+        } else {
+            scrollView.removeAllSubviews()
+        }
     }
     
     func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
@@ -209,13 +230,18 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     }
     
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
+        
+        let date = CVDate(date: NSDate())
+        
+        return dayView.date.month > date.month || (dayView.date.day >= date.day && dayView.date.month == date.month)
+            
+        
 //        let day = dayView.date.day
 //        let schedule = possibleTimes[day]
 //        if schedule?.count > 0 {
 //            return true
 //        }
 //        
-        return true
     }
     
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
