@@ -45,7 +45,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="containerView" destination="dr3-LC-KHd" id="uZq-Yi-MS1"/>
+                <outlet property="date" destination="Yd3-dy-HOh" id="nml-CM-WsE"/>
                 <outlet property="imgView" destination="sIk-S3-uzX" id="EcW-1t-nqM"/>
+                <outlet property="route" destination="iTP-85-5aG" id="rJm-Uy-2xN"/>
+                <outlet property="time" destination="2Im-Y9-ULB" id="4vE-cd-cJ4"/>
             </connections>
             <point key="canvasLocation" x="259" y="187.5"/>
         </view>
