@@ -25,6 +25,7 @@ class InfoViewController: UIViewController {
     @IBAction func busStopButtonClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("map")
+       // vc.type = "Hanover"
         navigationController?.pushViewController(vc, animated: true)
     }
     /*
