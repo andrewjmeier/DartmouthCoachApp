@@ -25,12 +25,17 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var applePayButton: UIButton!
     
-    let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex]
+    var SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex]
+
+    
     let ApplePaySwagMerchantID = "merchant.com.cs89.monkeyinthemiddleapps" // Fill in your merchant ID here!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 9.2, *) {
+            SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex, PKPaymentNetworkDiscover, PKPaymentNetworkChinaUnionPay]
+        }
         title = "Select Your Departure Day"
         // Do any additional setup after loading the view, typically from a nib.
     }
