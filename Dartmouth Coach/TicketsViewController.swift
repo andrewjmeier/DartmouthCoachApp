@@ -68,6 +68,40 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return NSKeyedUnarchiver.unarchiveObjectWithData(data) as! TicketData
         }
         
+        func purchaseDateString() -> String {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            dateFormatter.timeStyle = .MediumStyle
+            dateFormatter.dateFormat = "MM/dd/yy"
+            
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            timeFormatter.timeStyle = .MediumStyle
+            timeFormatter.dateFormat = "h:mm:ss a"
+
+            return "Purchased on " + dateFormatter.stringFromDate(self.purchaseDate!) + " at " + timeFormatter.stringFromDate(self.purchaseDate!)
+        }
+        
+        func departureDateString() -> String {
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .MediumStyle
+            formatter.dateFormat = "h:mm:ss a"
+            return "Departing from \(origin!) at " + formatter.stringFromDate(self.departureTime!)
+        }
+        
+        func arrivalDateString() -> String {
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .MediumStyle
+            formatter.dateFormat = "h:mm:ss a"
+            return "Arriving to \(destination!) at " + formatter.stringFromDate(self.departureTime!)
+        }
+        
+        func toString() -> String {            
+            return purchaseDateString() + "\n\n" + departureDateString() + "\n\n" + arrivalDateString()
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -176,13 +210,19 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 self.prefs.setObject(oldTickets!, forKey: "tickets")
                 
-                self.prefs.synchronize()
+                self.prefs.synchronize(
+                )
                 
                 self.tableView.reloadData()
 
             }
             
         })
+    }
+    
+    func displayInfoForTicket(ticket:TicketData){
+        let alert = UIAlertController.showAlert("Ticket Info", message: ticket.toString())
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -198,6 +238,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell:TicketTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ticketcell") as! TicketTableViewCell
         cell.delegate = self
         
+        cell.slider?.removeFromSuperview();
         /*
             Getting inactive tickets from user defaults and loading them into the table view
         */
