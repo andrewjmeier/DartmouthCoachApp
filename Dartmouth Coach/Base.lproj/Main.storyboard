@@ -537,29 +537,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="mmK-io-DYG">
-                                <rect key="frame" x="56" y="40" width="263" height="263"/>
+                                <rect key="frame" x="46" y="65" width="283" height="283"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mmK-io-DYG" secondAttribute="height" multiplier="1:1" id="gYT-gl-3X3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6/9 6:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqr-Ln-htN">
-                                <rect key="frame" x="111" y="417" width="114" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22/22/22 22:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqr-Ln-htN">
+                                <rect key="frame" x="111" y="417" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hanover to Logan Airport" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIF-0z-6ed">
+                                <rect key="frame" x="16" y="32" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fp-cL-8y8">
+                                <rect key="frame" x="16" y="372" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure Time: 3:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjX-1m-MfS">
+                                <rect key="frame" x="16" y="405" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ticket Expires in 90 Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-P5-WLR">
+                                <rect key="frame" x="80" y="561" width="216" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mmK-io-DYG" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" constant="40" id="TTN-Q9-Zzd"/>
-                            <constraint firstItem="mmK-io-DYG" firstAttribute="top" secondItem="3Dl-TL-okl" secondAttribute="bottom" constant="20" id="dmN-io-4Sj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mmK-io-DYG" secondAttribute="trailing" constant="40" id="h8h-ve-SeU"/>
+                            <constraint firstItem="CIF-0z-6ed" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" id="0i2-2x-407"/>
+                            <constraint firstItem="CIF-0z-6ed" firstAttribute="top" secondItem="3Dl-TL-okl" secondAttribute="bottom" constant="12" id="JZh-qr-eab"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5Fp-cL-8y8" secondAttribute="leading" id="Phu-mo-ec6"/>
+                            <constraint firstItem="mmK-io-DYG" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" constant="30" id="TTN-Q9-Zzd"/>
+                            <constraint firstItem="AjX-1m-MfS" firstAttribute="top" secondItem="5Fp-cL-8y8" secondAttribute="bottom" constant="12" id="TYe-Id-u1e"/>
+                            <constraint firstItem="AjX-1m-MfS" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" id="bWd-My-W6y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mmK-io-DYG" secondAttribute="trailing" constant="30" id="h8h-ve-SeU"/>
+                            <constraint firstItem="BOb-P5-WLR" firstAttribute="centerX" secondItem="V2H-3M-LQS" secondAttribute="centerX" id="hq9-4d-joZ"/>
+                            <constraint firstItem="5Fp-cL-8y8" firstAttribute="top" secondItem="mmK-io-DYG" secondAttribute="bottom" constant="24" id="ped-et-kDO"/>
+                            <constraint firstItem="mmK-io-DYG" firstAttribute="top" secondItem="CIF-0z-6ed" secondAttribute="bottom" constant="12" id="sga-og-BHS"/>
+                            <constraint firstItem="V2d-8h-FHD" firstAttribute="top" secondItem="BOb-P5-WLR" secondAttribute="bottom" constant="36" id="sqi-Qp-WAO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CIF-0z-6ed" secondAttribute="trailing" id="tAe-ks-wF8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Active Ticket" image="qrcode" id="3dz-NK-Ree"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="dateLabel" destination="rqr-Ln-htN" id="3Vq-e4-LKO"/>
+                        <outlet property="patternView" destination="mmK-io-DYG" id="Ul9-Y8-bhE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfm-bX-Wt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
