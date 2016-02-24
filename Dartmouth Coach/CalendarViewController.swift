@@ -68,6 +68,12 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day], fromDate: date)
+        let day = components.day
+        
+        selectedDay = day
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -191,7 +197,7 @@ extension CalendarViewController: BusTimeViewDelegate {
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
-            vc.setLocations(departure!, arrival: arrival!)
+            vc.setLocations(arrival!, arrival: departure!)
             vc.numTickets = numTickets
             vc.isArrival = true
             vc.previousTicket = sender.schedule
