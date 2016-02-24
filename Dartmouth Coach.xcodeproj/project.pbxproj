@@ -20,7 +20,8 @@
 		498425281C6FD243009309ED /* UIAlertViewController+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498425271C6FD243009309ED /* UIAlertViewController+CS89.swift */; };
 		49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA646A1C79264300F3631E /* BusTimeView.swift */; };
 		49EA646D1C79265800F3631E /* BusTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EA646C1C79265800F3631E /* BusTimeView.xib */; };
-		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		81FC000383055BB57253D748 /* Pods_Dartmouth_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */; };
+		B521CB431C7B8FBC00163222 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521CB421C7B8FBC00163222 /* ScheduleViewController.swift */; };
 		B53EB0D31C72ADE800E194D8 /* BusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */; };
 		B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		5BDA638E5BBB3BFF09FC2497 /* Pods-Dartmouth Coach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.debug.xcconfig"; sourceTree = "<group>"; };
 		8476712619285ACB04AA49C4 /* Pods_Dartmouth_Coach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dartmouth_Coach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C72791FACB56C12F0704E06 /* Pods-Dartmouth Coach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dartmouth Coach.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dartmouth Coach/Pods-Dartmouth Coach.release.xcconfig"; sourceTree = "<group>"; };
+		B521CB421C7B8FBC00163222 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopViewController.swift; sourceTree = "<group>"; };
 		B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				B53EB0D21C72ADE800E194D8 /* BusStopViewController.swift */,
 				B53EB0D41C72AE2100E194D8 /* InfoViewController.swift */,
 				498425131C6E1D07009309ED /* Main.storyboard */,
+				B521CB421C7B8FBC00163222 /* ScheduleViewController.swift */,
 				49EA646A1C79264300F3631E /* BusTimeView.swift */,
 				49EA646C1C79265800F3631E /* BusTimeView.xib */,
 				498425231C6E764E009309ED /* TicketTableViewCell.swift */,
@@ -256,6 +259,7 @@
 				498425221C6E71FD009309ED /* CalendarViewController.swift in Sources */,
 				498425121C6E1D07009309ED /* TicketsViewController.swift in Sources */,
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
+				B521CB431C7B8FBC00163222 /* ScheduleViewController.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
 				49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */,
 				B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */,
