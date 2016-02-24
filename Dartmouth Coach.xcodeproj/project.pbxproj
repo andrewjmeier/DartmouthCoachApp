@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1739FACC1C7D6CCC008ACDEF /* TicketUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739FACB1C7D6CCC008ACDEF /* TicketUISlider.swift */; };
+		1739FACE1C7D71E7008ACDEF /* TicketUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739FACD1C7D71E7008ACDEF /* TicketUIView.swift */; };
 		492F37351C7B9872006EEA51 /* UIColor+CS89.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F37341C7B9872006EEA51 /* UIColor+CS89.swift */; };
 		4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250D1C6E1D07009309ED /* AppDelegate.swift */; };
 		498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984250F1C6E1D07009309ED /* BuyTicketsViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1739FACB1C7D6CCC008ACDEF /* TicketUISlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketUISlider.swift; sourceTree = "<group>"; };
+		1739FACD1C7D71E7008ACDEF /* TicketUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketUIView.swift; sourceTree = "<group>"; };
 		492F37341C7B9872006EEA51 /* UIColor+CS89.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+CS89.swift"; sourceTree = "<group>"; };
 		49367D511C7A728800416E38 /* Dartmouth Coach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dartmouth Coach.entitlements"; sourceTree = "<group>"; };
 		4984250A1C6E1D07009309ED /* Dartmouth Coach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dartmouth Coach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +106,8 @@
 				498425161C6E1D07009309ED /* Assets.xcassets */,
 				498425181C6E1D07009309ED /* LaunchScreen.storyboard */,
 				4984251B1C6E1D07009309ED /* Info.plist */,
+				1739FACB1C7D6CCC008ACDEF /* TicketUISlider.swift */,
+				1739FACD1C7D71E7008ACDEF /* TicketUIView.swift */,
 			);
 			path = "Dartmouth Coach";
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
 				B521CB431C7B8FBC00163222 /* ScheduleViewController.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
+				1739FACC1C7D6CCC008ACDEF /* TicketUISlider.swift in Sources */,
 				49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */,
 				B53EB0D51C72AE2100E194D8 /* InfoViewController.swift in Sources */,
 				498425101C6E1D07009309ED /* BuyTicketsViewController.swift in Sources */,

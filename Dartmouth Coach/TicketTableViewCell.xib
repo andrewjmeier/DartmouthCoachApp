@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TicketTableViewCell" customModule="Dartmouth_Coach" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="430" height="129"/>
+            <rect key="frame" x="0.0" y="0.0" width="327" height="129"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logan Airport -&gt; Hanover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTP-85-5aG">
@@ -23,37 +23,34 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dr3-LC-KHd">
+                    <rect key="frame" x="8" y="88" width="311" height="33"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Im-Y9-ULB">
-                    <rect key="frame" x="105" y="32" width="77" height="21"/>
+                    <rect key="frame" x="130" y="32" width="77" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dr3-LC-KHd">
-                    <rect key="frame" x="8" y="61" width="414" height="26"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buy" translatesAutoresizingMaskIntoConstraints="NO" id="sIk-S3-uzX">
-                            <rect key="frame" x="0.0" y="0.0" width="25" height="26"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-Y9-BGg">
+                    <rect key="frame" x="289" y="8" width="30" height="30"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="containerView" destination="dr3-LC-KHd" id="uZq-Yi-MS1"/>
+                <outlet property="containerView" destination="dr3-LC-KHd" id="OQC-dc-kbD"/>
                 <outlet property="date" destination="Yd3-dy-HOh" id="nml-CM-WsE"/>
-                <outlet property="imgView" destination="sIk-S3-uzX" id="EcW-1t-nqM"/>
+                <outlet property="infoButton" destination="PuO-Y9-BGg" id="4nW-y2-n2M"/>
                 <outlet property="route" destination="iTP-85-5aG" id="rJm-Uy-2xN"/>
                 <outlet property="time" destination="2Im-Y9-ULB" id="4vE-cd-cJ4"/>
             </connections>
-            <point key="canvasLocation" x="259" y="187.5"/>
+            <point key="canvasLocation" x="207.5" y="187.5"/>
         </view>
     </objects>
     <resources>
-        <image name="buy" width="30" height="30"/>
+        <image name="info" width="30" height="30"/>
     </resources>
 </document>
