@@ -110,7 +110,6 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let nib = UINib(nibName: "TicketTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "ticketcell")
         
-        
         prefs = NSUserDefaults.standardUserDefaults()
         
         /*
