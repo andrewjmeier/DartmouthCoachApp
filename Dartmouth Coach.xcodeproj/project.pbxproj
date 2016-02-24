@@ -266,6 +266,7 @@
 				498425121C6E1D07009309ED /* TicketsViewController.swift in Sources */,
 				498425241C6E764E009309ED /* TicketTableViewCell.swift in Sources */,
 				B521CB431C7B8FBC00163222 /* ScheduleViewController.swift in Sources */,
+				1739FACE1C7D71E7008ACDEF /* TicketUIView.swift in Sources */,
 				4984250E1C6E1D07009309ED /* AppDelegate.swift in Sources */,
 				1739FACC1C7D6CCC008ACDEF /* TicketUISlider.swift in Sources */,
 				49EA646B1C79264300F3631E /* BusTimeView.swift in Sources */,
