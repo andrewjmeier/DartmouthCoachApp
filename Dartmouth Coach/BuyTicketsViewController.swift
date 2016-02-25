@@ -27,16 +27,29 @@ class BuyTicketsViewController: UIViewController {
     @IBOutlet weak var numberOfTicketsLabel: UILabel!
     @IBOutlet weak var numberOfTicketsStepper: UIStepper!
     
+    @IBOutlet weak var ticketNumPrompt: UILabel!
+    
     var hasSelectedOrigin: Bool!
+    var hasSelectedDept: Bool!
     
     var origin: String?
     var destination: String?
+    var hideTopView = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hasSelectedOrigin = false
+        hasSelectedDept = false
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if hideTopView {
+            ticketNumPrompt.hidden = true
+            ticketTypeControl.hidden = true
+            numberOfTicketsLabel.hidden = true
+            numberOfTicketsStepper.hidden = true
+        }
+        
     }
     
     func changeNHOriginButtons(state: Bool) {
@@ -144,24 +157,52 @@ class BuyTicketsViewController: UIViewController {
     
     @IBAction func originPressed(sender: UIButton) {
         origin = sender.currentTitle
-        hasSelectedOrigin = !sender.selected
-        print(hasSelectedOrigin)
-        changeOriginButtons(sender, state: sender.selected)
-        sender.selected = !sender.selected
+        if (hasSelectedDept == true) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if (hideTopView) {
+                let vc = storyboard.instantiateViewControllerWithIdentifier("schedule") as! ScheduleViewController
+                vc.setLocations(origin!, arrival: destination!)
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // transition to next screen?
+                let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
+                vc.numTickets = Int(numberOfTicketsStepper.value)
+                vc.isOneWay = ticketTypeControl.selectedSegmentIndex == 0
+                vc.setLocations(origin!, arrival: destination!)
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            
+        } else {
+            changeOriginButtons(sender, state: sender.selected)
+            hasSelectedOrigin = !sender.selected
+            sender.selected = !sender.selected
+        }
     }
     
     @IBAction func destPressed(sender: UIButton) {
         destination = sender.currentTitle
         if (hasSelectedOrigin == true) {
-            // transition to next screen?
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
-            vc.numTickets = Int(numberOfTicketsStepper.value)
-            vc.isOneWay = ticketTypeControl.selectedSegmentIndex == 0
-            vc.setLocations(origin!, arrival: destination!)
-            navigationController?.pushViewController(vc, animated: true)
+
+            if (hideTopView) {
+                let vc = storyboard.instantiateViewControllerWithIdentifier("schedule") as! ScheduleViewController
+                vc.setLocations(origin!, arrival: destination!)
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // transition to next screen?
+                let vc = storyboard.instantiateViewControllerWithIdentifier("calendar") as! CalendarViewController
+                vc.numTickets = Int(numberOfTicketsStepper.value)
+                vc.isOneWay = ticketTypeControl.selectedSegmentIndex == 0
+                vc.setLocations(origin!, arrival: destination!)
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+
         } else {
             changeDestButtons(sender, state: sender.selected)
+            hasSelectedDept = !sender.selected
             sender.selected = !sender.selected
         }
     }

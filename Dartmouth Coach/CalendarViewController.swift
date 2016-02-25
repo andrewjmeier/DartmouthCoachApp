@@ -75,6 +75,12 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day], fromDate: date)
+        let day = components.day
+        
+        selectedDay = day
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -243,12 +249,8 @@ extension CalendarViewController: BusTimeViewDelegate {
     }
     
     func purcahseTicket(schedule: BusSchedule, day: Int) {
-        var tickets = NSUserDefaults.standardUserDefaults().arrayForKey("tickets") as? [NSData]
-        if let list = tickets {
-            print(list)
-        } else {
-            tickets = [NSData]()
-        }
+        var tickets = NSUserDefaults.standardUserDefaults().arrayForKey("inactiveTickets") as? [NSData]
+        
         let ticket1 = TicketsViewController.TicketData()
         
         let date = NSDate()
@@ -265,7 +267,7 @@ extension CalendarViewController: BusTimeViewDelegate {
         
         tickets!.append(ticket1.toNSData())
         
-        NSUserDefaults.standardUserDefaults().setObject(tickets, forKey: "tickets")
+        NSUserDefaults.standardUserDefaults().setObject(tickets, forKey: "inactiveTickets")
         
         NSUserDefaults.standardUserDefaults().synchronize()
     }
