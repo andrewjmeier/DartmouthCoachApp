@@ -109,6 +109,9 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let nib = UINib(nibName: "TicketTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "ticketcell")
+        tableView.separatorStyle = .None
+        tableView.rowHeight = 100.0
+        
         
         prefs = NSUserDefaults.standardUserDefaults()
         
@@ -191,7 +194,6 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
                 
-                
                 let activeTickets = oldTickets!.filter({
                     let t = TicketData.fromNSData($0)
                     return t.activated == true
@@ -209,8 +211,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 self.prefs.setObject(oldTickets!, forKey: "tickets")
                 
-                self.prefs.synchronize(
-                )
+                self.prefs.synchronize()
                 
                 self.tableView.reloadData()
 
@@ -233,11 +234,16 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell:TicketTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ticketcell") as! TicketTableViewCell
         cell.delegate = self
-        
-        cell.slider?.removeFromSuperview();
+
         /*
             Getting inactive tickets from user defaults and loading them into the table view
         */
@@ -262,12 +268,13 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-       return 100.0
+       return 150.0
     }
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false;
     }
+    
 //
 //    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        

@@ -13,10 +13,8 @@ class TicketUISlider:UISlider {
 
     override func trackRectForBounds(bounds: CGRect) -> CGRect {
         //keeps original origin and width, changes height, you get the idea
-        let customBounds = CGRect(origin: CGPointMake(0, 40), size: CGSize(width: bounds.size.width, height: 15.0))
+        let customBounds = CGRect(origin: CGPointMake(bounds.origin.x, 80), size: CGSize(width: bounds.size.width, height: 15.0))
         super.trackRectForBounds(customBounds)
         return customBounds
     }
-
-    
 }
