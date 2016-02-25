@@ -121,49 +121,49 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         closes the app, and comes back, new dummy inactive tickets will be created. Once the flow for
         creating the tickets themselves comes in place, we can disable that part by setting the demo bool to false
         */
-        if(demo){
-            let ticket1 = TicketData()
-            let ticket2 = TicketData()
-            let ticket3 = TicketData()
-            
-            ticket1.initWithInfo("Hanover", destination: "Logan Airport", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
-            ticket2.initWithInfo("Logan Airport", destination: "Hanover", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
-            ticket3.initWithInfo("Hanover", destination: "South Station", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
-            
-            
-            tickets.append(ticket1.toNSData())
-            tickets.append(ticket2.toNSData())
-            tickets.append(ticket3.toNSData())
-        }
+//        if(demo){
+//            let ticket1 = TicketData()
+//            let ticket2 = TicketData()
+//            let ticket3 = TicketData()
+//            
+//            ticket1.initWithInfo("Hanover", destination: "Logan Airport", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
+//            ticket2.initWithInfo("Logan Airport", destination: "Hanover", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
+//            ticket3.initWithInfo("Hanover", destination: "South Station", departureTime: NSDate(), arrivalTime: NSDate(), activated: false, purchaseDate: NSDate())
+//            
+//            
+//            tickets.append(ticket1.toNSData())
+//            tickets.append(ticket2.toNSData())
+//            tickets.append(ticket3.toNSData())
+//        }
         
-        let oldTickets = prefs.arrayForKey("tickets") as? [NSData]
-        var inactiveTickets = prefs.arrayForKey("inactiveTickets") as? [NSData]
-        if(oldTickets != nil){
-            if(demo){
-                if(inactiveTickets?.count > 0){
-                    tickets = oldTickets!
-                }
-            } else {
-                tickets = oldTickets!
-            }
-        }
+//        let oldTickets = prefs.arrayForKey("tickets") as? [NSData]
+//        var inactiveTickets = prefs.arrayForKey("inactiveTickets") as? [NSData]
+//        if(oldTickets != nil){
+//            if(demo){
+//                if(inactiveTickets?.count > 0){
+//                    tickets = oldTickets!
+//                }
+//            } else {
+//                tickets = oldTickets!
+//            }
+//        }
         
-        prefs.setObject(tickets, forKey: "tickets")
+//        prefs.setObject(tickets, forKey: "tickets")
         
-        let activeTickets = tickets.filter({
-            let t = TicketData.fromNSData($0)
-            return t.activated == true
-        })
-        
-        inactiveTickets = tickets.filter({
-            let t = TicketData.fromNSData($0)
-            return t.activated == false
-        })
-        
-        prefs.setObject(inactiveTickets, forKey: "inactiveTickets")
-        prefs.setObject(activeTickets, forKey: "activeTickets")
-        
-        prefs.synchronize()
+//        let activeTickets = tickets.filter({
+//            let t = TicketData.fromNSData($0)
+//            return t.activated == true
+//        })
+//        
+//        inactiveTickets = tickets.filter({
+//            let t = TicketData.fromNSData($0)
+//            return t.activated == false
+//        })
+//        
+//        prefs.setObject(inactiveTickets, forKey: "inactiveTickets")
+//        prefs.setObject(activeTickets, forKey: "activeTickets")
+//        
+//        prefs.synchronize()
 
     }
     
@@ -179,50 +179,72 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func activateTicket(activatedTicket:TicketData) {
-        let alert = UIAlertController.showAlert("Ticket Activated", message: "Your ticket will expire in 90 minutes")
-        presentViewController(alert, animated: true, completion: {
+        
+        let ticket = self.prefs.objectForKey("activeTicket") as? NSData
+        
+        if let tic = ticket {
+            let ticObj = TicketData.fromNSData(tic)
+            if ticObj.activated == true {
+                if ((ticObj.expirationDate?.timeIntervalSinceNow)! * -1) < 90 {
+                    // invalid ticket
+                    let alert = UIAlertController.showAlert("Activation Failed", message: "You already have an active ticket")
+                    presentViewController(alert, animated: true, completion: nil)
+                    return
+                } else {
+                    // clear out object b/c it expired
+                    self.prefs.setObject(nil, forKey: "activeTicket")
+                    self.prefs.synchronize()
+                }
+            }
+        }
+        
+        let controller = UIAlertController(title: "Are you sure you want to activate your ticket", message: "The ticket will only be valid for 90 minutes after activation", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okButton = UIAlertAction(title: "Yes, Activate it!", style: .Default, handler: { (action) -> Void in
             
             /*
-                After the notification about the ticket activation, this modifies the ticket to activated, 
-                refilters the arrays, saves them back to user defaults, and reloads the tableview.
+            After the notification about the ticket activation, this modifies the ticket to activated,
+            refilters the arrays, saves them back to user defaults, and reloads the tableview.
             */
             
-            var oldTickets = self.prefs.arrayForKey("tickets") as? [NSData]
+            var oldTickets = self.prefs.arrayForKey("inactiveTickets") as? [NSData]
             if(oldTickets != nil){
                 for(var i = 0; i < oldTickets!.count; i++){
                     let currentTicket = TicketData.fromNSData(oldTickets![i])
                     if(currentTicket.purchaseDate!.isEqualToDate(activatedTicket.purchaseDate!)){
+                        activatedTicket.expirationDate = NSDate()
                         activatedTicket.setValue(true, forKey: "activated")
                         oldTickets!.removeAtIndex(i);
-                        oldTickets!.append(activatedTicket.toNSData())
+//                        oldTickets!.append(activatedTicket.toNSData())
+                        self.prefs.setObject(activatedTicket.toNSData(), forKey: "activeTicket")
                         break
                     }
                 }
                 
-                let activeTickets = oldTickets!.filter({
-                    let t = TicketData.fromNSData($0)
-                    return t.activated == true
-                })
                 let inactiveTickets = oldTickets!.filter({
                     
                     let t = TicketData.fromNSData($0)
                     return t.activated == false
-
+                    
                 })
-
+                
                 self.prefs.setObject(inactiveTickets, forKey: "inactiveTickets")
-                self.prefs.setObject(activeTickets, forKey: "activeTickets")
                 
                 
-                self.prefs.setObject(oldTickets!, forKey: "tickets")
+//                self.prefs.setObject(oldTickets!, forKey: "tickets")
                 
                 self.prefs.synchronize()
                 
                 self.tableView.reloadData()
-
             }
-            
         })
+        
+        let noButton = UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil)
+        controller.addAction(okButton)
+        controller.addAction(noButton)
+
+        presentViewController(controller, animated: true, completion: nil)
+        
     }
     
     func displayInfoForTicket(ticket:TicketData){

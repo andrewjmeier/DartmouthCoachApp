@@ -208,7 +208,7 @@ extension CalendarViewController: BusTimeViewDelegate {
     }
     
     func purcahseTicket(schedule: BusSchedule, day: Int) {
-        var tickets = NSUserDefaults.standardUserDefaults().arrayForKey("tickets") as? [NSData]
+        var tickets = NSUserDefaults.standardUserDefaults().arrayForKey("inactiveTickets") as? [NSData]
         
         let ticket1 = TicketsViewController.TicketData()
         
@@ -226,7 +226,7 @@ extension CalendarViewController: BusTimeViewDelegate {
         
         tickets!.append(ticket1.toNSData())
         
-        NSUserDefaults.standardUserDefaults().setObject(tickets, forKey: "tickets")
+        NSUserDefaults.standardUserDefaults().setObject(tickets, forKey: "inactiveTickets")
         
         NSUserDefaults.standardUserDefaults().synchronize()
     }
