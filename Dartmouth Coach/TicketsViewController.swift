@@ -68,6 +68,40 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return NSKeyedUnarchiver.unarchiveObjectWithData(data) as! TicketData
         }
         
+        func purchaseDateString() -> String {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            dateFormatter.timeStyle = .MediumStyle
+            dateFormatter.dateFormat = "MM/dd/yy"
+            
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            timeFormatter.timeStyle = .MediumStyle
+            timeFormatter.dateFormat = "h:mm:ss a"
+
+            return "Purchased on " + dateFormatter.stringFromDate(self.purchaseDate!) + " at " + timeFormatter.stringFromDate(self.purchaseDate!)
+        }
+        
+        func departureDateString() -> String {
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .MediumStyle
+            formatter.dateFormat = "h:mm:ss a"
+            return "Departing from \(origin!) at " + formatter.stringFromDate(self.departureTime!)
+        }
+        
+        func arrivalDateString() -> String {
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .MediumStyle
+            formatter.dateFormat = "h:mm:ss a"
+            return "Arriving to \(destination!) at " + formatter.stringFromDate(self.departureTime!)
+        }
+        
+        func toString() -> String {            
+            return purchaseDateString() + "\n\n" + departureDateString() + "\n\n" + arrivalDateString()
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -75,16 +109,17 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let nib = UINib(nibName: "TicketTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "ticketcell")
-        
+        tableView.separatorStyle = .None
+        tableView.rowHeight = 100.0
         
         prefs = NSUserDefaults.standardUserDefaults()
         
         /*
-            Here, for the sake of demoing, we create 3 dummy tickets and add them to the user defaults.
-            For now, tickets are only being added if there have never been tickets added to user defaults
-            or if there are no remaining inactive tickets, so that if the user swipes all the tickets away,
-            closes the app, and comes back, new dummy inactive tickets will be created. Once the flow for 
-            creating the tickets themselves comes in place, we can disable that part by setting the demo bool to false
+        Here, for the sake of demoing, we create 3 dummy tickets and add them to the user defaults.
+        For now, tickets are only being added if there have never been tickets added to user defaults
+        or if there are no remaining inactive tickets, so that if the user swipes all the tickets away,
+        closes the app, and comes back, new dummy inactive tickets will be created. Once the flow for
+        creating the tickets themselves comes in place, we can disable that part by setting the demo bool to false
         */
         if(demo){
             let ticket1 = TicketData()
@@ -100,7 +135,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             tickets.append(ticket2.toNSData())
             tickets.append(ticket3.toNSData())
         }
-
+        
         let oldTickets = prefs.arrayForKey("tickets") as? [NSData]
         var inactiveTickets = prefs.arrayForKey("inactiveTickets") as? [NSData]
         if(oldTickets != nil){
@@ -114,7 +149,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         prefs.setObject(tickets, forKey: "tickets")
-
+        
         let activeTickets = tickets.filter({
             let t = TicketData.fromNSData($0)
             return t.activated == true
@@ -124,12 +159,18 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let t = TicketData.fromNSData($0)
             return t.activated == false
         })
-
+        
         prefs.setObject(inactiveTickets, forKey: "inactiveTickets")
         prefs.setObject(activeTickets, forKey: "activeTickets")
         
         prefs.synchronize()
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,7 +199,6 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
                 
-                
                 let activeTickets = oldTickets!.filter({
                     let t = TicketData.fromNSData($0)
                     return t.activated == true
@@ -184,6 +224,11 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         })
     }
+    
+    func displayInfoForTicket(ticket:TicketData){
+        let alert = UIAlertController.showAlert("Ticket Info", message: ticket.toString())
+        presentViewController(alert, animated: true, completion: nil)
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let inactiveTickets = prefs.arrayForKey("inactiveTickets") as? [NSData]
@@ -194,10 +239,16 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell:TicketTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ticketcell") as! TicketTableViewCell
         cell.delegate = self
-        
+
         /*
             Getting inactive tickets from user defaults and loading them into the table view
         */
@@ -222,12 +273,13 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-       return 100.0
+       return 150.0
     }
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false;
     }
+    
 //
 //    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        

@@ -11,13 +11,42 @@ import UIKit
 
 protocol TicketTableViewCellDelegate {
     func activateTicket(currentTicket:TicketsViewController.TicketData);
+    func displayInfoForTicket(ticket:TicketsViewController.TicketData);
 }
 
-class TicketTableViewCell: UITableViewCell {
+class TicketTableViewCell: TicketUIView {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var containerView: UIView!
- 
+    
+    @IBOutlet weak var infoButton: UIImageView!
+        
+    var continuous:Bool = false
+    
+    func sliderValueDidChanged(sender: UISlider) {
+        continuous = true
+        if(sender.value == sender.maximumValue){
+            if let del = self.delegate {
+                sender.value = sender.minimumValue
+                del.activateTicket(ticket!)
+            }
+        }
+    }
+    
+    func liftedFingerInside(sender: UISlider) {
+        if(continuous && sender.value < sender.maximumValue){
+            sender.value = sender.minimumValue
+        }
+        continuous = false
+    }
+
+    func liftedFingerOutside(sender: UISlider) {
+        if(continuous && sender.value < sender.maximumValue){
+            sender.value = sender.minimumValue
+        }
+        continuous = false
+    }
+    
     @IBOutlet weak var route: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var time: UILabel!
@@ -32,17 +61,11 @@ class TicketTableViewCell: UITableViewCell {
     func setupGesture(currentTicket:TicketsViewController.TicketData) {
         ticket = currentTicket
         setupTicket(ticket!)
-//        userInteractionEnabled = true
-        let gesture = UIPanGestureRecognizer(target: self, action: "handleSwipe:")
-//        gesture.delegate = self;
-//        containerView.userInteractionEnabled = true
-        addGestureRecognizer(gesture)
-        imgEnd = frame.width - 12 - imgView.frame.width - 90;
-        resetSwipe()
-    }
-    
-    func resetSwipe(){
-        moveImage(imgStart)
+        userInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "displayTicketInfo:")
+        
+        self.addGestureRecognizer(tapGesture)
     }
     
     func setupTicket(ticket:TicketsViewController.TicketData){
@@ -78,36 +101,23 @@ class TicketTableViewCell: UITableViewCell {
 
     }
     
-    func handleSwipe(recognizer: UIPanGestureRecognizer) {
-        print("Recognized swipe!")
-        let point = recognizer.locationInView(self)
-        if (recognizer.state == .Ended) {
-            moveImage(imgStart)
-        } else if (point.x < imgStart) {
-            moveImage(imgStart)
-        } else if (point.x > imgEnd) {
-            moveImage(imgEnd)
-            if let del = self.delegate {
-                del.activateTicket(ticket!)
+    func displayTicketInfo(recognizer: UITapGestureRecognizer){
+        print("Recognized tap on cell!")
+        let point = recognizer.locationInView(self.infoButton)
+        print("Point: \(point.x), \(point.y); Info Button Origin: \(infoButton.frame.origin.x), \(infoButton.frame.origin.y); Info Button Size: \(infoButton.bounds.size)")
+        let tappedInfoButton = infoButton.pointInside(point, withEvent: nil)
+        if let del = self.delegate {
+            
+            if tappedInfoButton == true {
+                print("Recognized tap on info button!")
+                
+                del.displayInfoForTicket(ticket!)
             }
-        } else {
-            moveImage(point.x)
         }
     }
     
-//    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-//            let translation = panGestureRecognizer.translationInView(superview!)
-//            if fabs(translation.x) > fabs(translation.y) {
-//                return true
-//            }
-//            return false
-//        }
-//        return false
-//    }
-
-    
-    func moveImage(location: CGFloat) {
-        imgView.frame = CGRect(x: location, y: imgView.frame.origin.y, width: imgView.frame.width, height: imgView.frame.height)
+    func handleSwipe(recognizer: UIPanGestureRecognizer) {
+        print("Recognized swipe!")
     }
+    
 }
