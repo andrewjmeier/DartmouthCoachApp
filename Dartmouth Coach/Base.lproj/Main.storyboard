@@ -572,10 +572,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show this ticket to the bus driver when you board the coach" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-vN-6J2">
+                                <rect key="frame" x="16" y="439" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CIF-0z-6ed" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" id="0i2-2x-407"/>
+                            <constraint firstItem="TgS-vN-6J2" firstAttribute="top" secondItem="AjX-1m-MfS" secondAttribute="bottom" constant="13" id="2vH-M7-SIX"/>
+                            <constraint firstItem="TgS-vN-6J2" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" id="5Nt-eB-YY6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TgS-vN-6J2" secondAttribute="trailing" id="IU7-yE-mr9"/>
                             <constraint firstItem="CIF-0z-6ed" firstAttribute="top" secondItem="3Dl-TL-okl" secondAttribute="bottom" constant="12" id="JZh-qr-eab"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5Fp-cL-8y8" secondAttribute="leading" id="Phu-mo-ec6"/>
                             <constraint firstItem="mmK-io-DYG" firstAttribute="leading" secondItem="V2H-3M-LQS" secondAttribute="leadingMargin" constant="30" id="TTN-Q9-Zzd"/>
@@ -592,8 +601,13 @@
                     <tabBarItem key="tabBarItem" title="Active Ticket" image="qrcode" id="3dz-NK-Ree"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="busTimeLabel" destination="AjX-1m-MfS" id="WhV-KL-uIL"/>
                         <outlet property="dateLabel" destination="rqr-Ln-htN" id="3Vq-e4-LKO"/>
+                        <outlet property="instructions" destination="TgS-vN-6J2" id="LPd-BM-cu7"/>
+                        <outlet property="locationLabel" destination="CIF-0z-6ed" id="e2G-UF-ZvL"/>
+                        <outlet property="name" destination="5Fp-cL-8y8" id="NVi-Ft-Qs9"/>
                         <outlet property="patternView" destination="mmK-io-DYG" id="Ul9-Y8-bhE"/>
+                        <outlet property="timeRemainingLabel" destination="BOb-P5-WLR" id="Aqm-QC-fKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfm-bX-Wt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
