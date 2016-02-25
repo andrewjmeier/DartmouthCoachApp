@@ -34,7 +34,8 @@ class TicketUIView : UITableViewCell {
 
         self.contentView.addSubview(slider)
         
-        slider.setThumbImage(UIImage(named: "arrow")!, forState: .Normal)
+        let img = UIImage(named: "arrow")
+        slider.setThumbImage(img, forState: .Normal)
         
         self.contentView.addSubview(whiteRoundedView)
         self.contentView.sendSubviewToBack(whiteRoundedView)

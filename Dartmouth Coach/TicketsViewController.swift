@@ -112,15 +112,14 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.separatorStyle = .None
         tableView.rowHeight = 100.0
         
-        
         prefs = NSUserDefaults.standardUserDefaults()
         
         /*
-            Here, for the sake of demoing, we create 3 dummy tickets and add them to the user defaults.
-            For now, tickets are only being added if there have never been tickets added to user defaults
-            or if there are no remaining inactive tickets, so that if the user swipes all the tickets away,
-            closes the app, and comes back, new dummy inactive tickets will be created. Once the flow for 
-            creating the tickets themselves comes in place, we can disable that part by setting the demo bool to false
+        Here, for the sake of demoing, we create 3 dummy tickets and add them to the user defaults.
+        For now, tickets are only being added if there have never been tickets added to user defaults
+        or if there are no remaining inactive tickets, so that if the user swipes all the tickets away,
+        closes the app, and comes back, new dummy inactive tickets will be created. Once the flow for
+        creating the tickets themselves comes in place, we can disable that part by setting the demo bool to false
         */
         if(demo){
             let ticket1 = TicketData()
@@ -136,7 +135,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             tickets.append(ticket2.toNSData())
             tickets.append(ticket3.toNSData())
         }
-
+        
         let oldTickets = prefs.arrayForKey("tickets") as? [NSData]
         var inactiveTickets = prefs.arrayForKey("inactiveTickets") as? [NSData]
         if(oldTickets != nil){
@@ -150,7 +149,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         prefs.setObject(tickets, forKey: "tickets")
-
+        
         let activeTickets = tickets.filter({
             let t = TicketData.fromNSData($0)
             return t.activated == true
@@ -160,12 +159,18 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let t = TicketData.fromNSData($0)
             return t.activated == false
         })
-
+        
         prefs.setObject(inactiveTickets, forKey: "inactiveTickets")
         prefs.setObject(activeTickets, forKey: "activeTickets")
         
         prefs.synchronize()
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
