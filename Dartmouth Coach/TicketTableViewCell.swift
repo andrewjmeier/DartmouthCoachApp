@@ -14,27 +14,23 @@ protocol TicketTableViewCellDelegate {
     func displayInfoForTicket(ticket:TicketsViewController.TicketData);
 }
 
-class TicketTableViewCell: UITableViewCell {
+class TicketTableViewCell: TicketUIView {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var infoButton: UIImageView!
-    
-    var slider: TicketUISlider!
-    
+        
     var continuous:Bool = false
     
     func sliderValueDidChanged(sender: UISlider) {
         continuous = true
         if(sender.value == sender.maximumValue){
             if let del = self.delegate {
-                sender.removeFromSuperview()
+                sender.value = sender.minimumValue
                 del.activateTicket(ticket!)
             }
         }
-//        let currentValue = sender.value
-//        label.text = "\(currentValue)"
     }
     
     func liftedFingerInside(sender: UISlider) {
@@ -51,13 +47,6 @@ class TicketTableViewCell: UITableViewCell {
         continuous = false
     }
     
-//    override func drawRect(rect: CGRect) {
-//        let c = UIGraphicsGetCurrentContext()
-//        CGContextAddRect(c, CGRectMake(0, 0, 500, 300))
-//        CGContextSetStrokeColorWithColor(c , UIColor.redColor().CGColor)
-//        CGContextStrokePath(c)
-//    }
- 
     @IBOutlet weak var route: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var time: UILabel!
@@ -77,51 +66,6 @@ class TicketTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: "displayTicketInfo:")
         
         self.addGestureRecognizer(tapGesture)
-        
-        slider = TicketUISlider.init(frame: contentView.frame)
-        slider.addTarget(self, action: "sliderValueDidChanged:", forControlEvents: UIControlEvents.ValueChanged)
-        slider.addTarget(self, action: "liftedFingerInside:", forControlEvents: UIControlEvents.TouchUpInside)
-        slider.addTarget(self, action: "liftedFingerOutside:", forControlEvents: UIControlEvents.TouchUpOutside)
-
-        self.contentView.addSubview(slider)
-        slider.bounds = CGRectMake(0, -35, contentView.frame.width - 10, contentView.frame.height);
-        slider.center = CGPointMake(CGRectGetMidX(contentView.bounds), CGRectGetMidY(contentView.bounds))
-        slider.autoresizingMask = UIViewAutoresizing.FlexibleWidth.union(UIViewAutoresizing.FlexibleTopMargin).union(UIViewAutoresizing.FlexibleBottomMargin)
-
-//        let gesture = UIPanGestureRecognizer(target: self, action: "handleSwipe:")
-//        gesture.delegate = self;
-//        containerView.userInteractionEnabled = true
-//        addGestureRecognizer(gesture)
-        
-        
-        slider.setThumbImage(UIImage(named: "buy")!, forState: .Normal)
-        
-//        let superview = self.superview
-//        
-//        let shadowView = UIView(frame: CGRectMake(0, 0, self.contentView.frame.width, self.contentView.frame.height))
-//        shadowView.layer.shadowColor = UIColor.blackColor().CGColor
-//        shadowView.layer.shadowOffset = CGSizeZero
-//        shadowView.layer.shadowOpacity = 0.5
-//        shadowView.layer.shadowRadius = 5
-//        
-//        let view = TicketUIView(frame: shadowView.bounds)
-//        view.backgroundColor = UIColor.grayColor()
-//        view.alpha = 0.25
-//        view.layer.cornerRadius = 10.0
-//        view.layer.borderColor = UIColor.grayColor().CGColor
-//        view.layer.borderWidth = 0.5
-//        view.clipsToBounds = true
-//        
-////        view.addSubview(self)
-//        
-//        shadowView.addSubview(view)
-//        superview?.addSubview(shadowView)
-
-        resetSwipe()
-    }
-    
-    func resetSwipe(){
-        moveImage(imgStart)
     }
     
     func setupTicket(ticket:TicketsViewController.TicketData){
@@ -174,34 +118,6 @@ class TicketTableViewCell: UITableViewCell {
     
     func handleSwipe(recognizer: UIPanGestureRecognizer) {
         print("Recognized swipe!")
-//        let point = recognizer.locationInView(self)
-//        if (recognizer.state == .Ended) {
-//            moveImage(imgStart)
-//        } else if (point.x < imgStart) {
-//            moveImage(imgStart)
-//        } else if (point.x > imgEnd) {
-//            moveImage(imgEnd)
-//            if let del = self.delegate {
-//                del.activateTicket(ticket!)
-//            }
-//        } else {
-//            moveImage(point.x)
-//        }
     }
     
-//    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-//            let translation = panGestureRecognizer.translationInView(superview!)
-//            if fabs(translation.x) > fabs(translation.y) {
-//                return true
-//            }
-//            return false
-//        }
-//        return false
-//    }
-
-    
-    func moveImage(location: CGFloat) {
-//        imgView.frame = CGRect(x: location, y: imgView.frame.origin.y, width: imgView.frame.width, height: imgView.frame.height)
-    }
 }
